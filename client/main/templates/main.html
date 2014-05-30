@@ -1,0 +1,17 @@
+<template name="main">
+  {{#if currentUser}}
+    <button type="button" id="add-recipe" class="btn btn-primary">Add recipe</button>
+
+    <h2>Your Recipes</h2>
+    <div class="well">
+      {{#each userRecipes}}
+        {{> recipe}}
+      {{/each}}
+    </div>
+  {{/if}}
+  {{#unless currentUser}}
+    <div class="well">
+      {{> loginButtons}}
+    </div>
+  {{/unless}}
+</template>
