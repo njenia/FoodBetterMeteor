@@ -7,4 +7,5 @@ standard-app-packages
 autopublish
 accounts-ui
 accounts-google
-bootstrap
+bower
+iron-router

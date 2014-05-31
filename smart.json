@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "bower": {},
+    "iron-router": {}
+  },
+  "bower": {
+    "bootstrap": "3.1.1",
+    "momentjs": "2.6.0"
+  }
+}

@@ -1,3 +1,4 @@
 <template name="recipe">
-<span>{{recipeName}}</span><span>{{submittedOn}}</span>
+<span><a href="#">{{recipeName}}</a></span>
+<span class="recipe-created-time-ago"><small>{{formatTimeAgo submittedOn}}</small></span>
 </template>
