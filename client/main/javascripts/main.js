@@ -1,11 +1,17 @@
 Template.main.userRecipes = function () {
-    return Recipes.find();
+    return Recipes.find({}, {
+    	'sort': { 'submittedOn': -1 }
+    });
   };
 
-  // Template.hello.events({
-  //   'click input': function () {
-  //     // template data, if any, is available in 'this'
-  //     if (typeof console !== 'undefined')
-  //       console.log("You pressed the button");
-  //   }
-  // });
+  Template.main.events({
+    'click #add-recipe-button': function () {
+    	$('#recipe-name-input')[0].focus();
+    },
+    'click #add-recipe-continue-button': function() {
+    	var recipeName = $('#recipe-name-input').val();
+    	var recipeId = Meteor.call('addRecipe', recipeName, function(error, result) {
+    		Router.go('/recipes/' + result);	
+    	});
+    }
+  });

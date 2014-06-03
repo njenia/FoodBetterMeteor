@@ -1,4 +1,6 @@
 <template name="recipe">
-<span><a href="#">{{recipeName}}</a></span>
-<span class="recipe-created-time-ago"><small>{{formatTimeAgo submittedOn}}</small></span>
+<div>
+	<span><a href="{{pathFor 'editRecipe'}}">{{recipeName}}</a></span>
+	<span class="recipe-created-time-ago"><small>{{formatTimeAgo submittedOn}}</small></span>
+</div>
 </template>

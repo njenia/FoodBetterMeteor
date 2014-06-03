@@ -1,6 +1,6 @@
 Router.map(function() {
 	this.route('main', {path: '/'});
-	this.route('recipeShow', { 
+	this.route('editRecipe', { 
 		path: '/recipes/:_id',	
 		data: function() { 
 			return Recipes.findOne(this.params._id); 
@@ -10,6 +10,7 @@ Router.map(function() {
 
 if (Meteor.isClient) {
 	Router.configure({
-		layoutTemplate: 'bodyLayout'
+		layoutTemplate: 'bodyLayout',
+		loadingTemplate: 'loadingTemplate'
 	});
 }
