@@ -1,3 +1,49 @@
 <template name="editRecipe">
-{{recipeName}}
+<div class="page-header">
+	<h1>{{recipeName}}&nbsp;<small>{{formatTimeAgo submittedOn}}</small></h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h3>Ingredients</h3>
+			<div class="container">
+				<div class="row">
+					<div class="form-inline ingredients-form">
+							<input type="text" id="new-ingredient-quantity" class="form-control small-input" placeholder="quantity" />
+							<input type="text" id="new-ingredient-description" class="form-control" placeholder="ingredient" />
+							<button type="button" id="add-ingredient-button" class="btn btn-primary">
+								<span class="glyphicon glyphicon-plus"></span>
+								Add
+							</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="container">
+						{{#each ingredients}}
+							<div class="row">
+								<span class="col-lg-1">{{quantity}}</span>&nbsp;
+								<span class="col-lg-4">{{description}}</span>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-8">
+			<h3>Preperation Steps</h3>
+			<div class="container">
+				<div class="row">
+					<div class="form-inline">
+						<textarea id="new-prep-step-textarea" class="form-control" placeholder="Preperation step"></textarea>
+						<button type="button" id="add-prep-step-button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-plus"></span>
+							Add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </template>
