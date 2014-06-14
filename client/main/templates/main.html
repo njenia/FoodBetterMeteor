@@ -5,9 +5,13 @@
     </h2>
     <div class="container">
       <div class="row">
-        {{#each userRecipes}}
-          {{> recipe}}
-        {{/each}}
+        {{#if userRecipes.count}}
+          {{#each userRecipes}}
+            {{> recipe}}
+          {{/each}}
+        {{else}}
+          <p>No recipes yet</p>
+        {{/if}}
       </div>
     </div>
   {{/if}}
