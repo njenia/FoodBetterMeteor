@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-lg-4">
 			<h3>Ingredients</h3>
-			<div class="container">
+			<div>
 				<div class="row">
 					<div class="form-inline ingredients-form">
 							<input type="text" id="new-ingredient-quantity" class="form-control small-input" placeholder="quantity" />
@@ -18,11 +18,11 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="container">
+					<div class=" ingredients-list container-fluid">
 						{{#each ingredients}}
 							<div class="row">
-								<span class="col-lg-1">{{quantity}}</span>&nbsp;
-								<span class="col-lg-4">{{description}}</span>
+								<span class="col-lg-3">{{quantity}}</span>
+								<span class="col-lg-9">{{description}}</span>
 							</div>
 						{{/each}}
 					</div>
@@ -32,15 +32,23 @@
 
 		<div class="col-lg-8">
 			<h3>Preperation Steps</h3>
-			<div class="container">
+			<div>
 				<div class="row">
 					<div class="form-inline">
-						<textarea id="new-prep-step-textarea" class="form-control" placeholder="Preperation step"></textarea>
+						<textarea id="new-prep-step-textarea" rows="1" class="form-control" placeholder="Preperation step" min-length="1"></textarea>
 						<button type="button" id="add-prep-step-button" class="btn btn-primary">
 							<span class="glyphicon glyphicon-plus"></span>
 							Add
 						</button>
 					</div>
+				</div>
+				<div class="row steps-list">
+					{{#each indexedArray preperationSteps}}
+						<div class="row">
+							<div class="col-lg-1 preperation-step-index">{{_index}}</div>
+							<div class="col-lg-11">{{stepText}}</div>
+						</div>
+					{{/each}}
 				</div>
 			</div>
 		</div>

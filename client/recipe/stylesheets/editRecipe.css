@@ -1,3 +1,19 @@
 .ingredients-form input.small-input {
 	width: 80px;
 }
+
+.preperation-step-index {
+	font-size: large;
+	font-weight: bold;
+	color: #c0c0c0;
+
+	width: 0.2% !important;
+}
+
+.ingredients-list {
+	margin-top: 5px;
+}
+
+.steps-list {
+	margin-top: 5px;
+}

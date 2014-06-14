@@ -15,15 +15,31 @@ Template.editRecipe.events = {
 		$('#new-ingredient-quantity').val('');
 		$('#new-ingredient-quantity').focus();
 	},
+	'keypress #new-ingredient-description': function(evt) {
+		if (evt.which === 13) {
+			$('#add-ingredient-button').click();
+		}
+	},
 	'click #add-prep-step-button': function() {
 		var newStepText = $('#new-prep-step-textarea').val();
 		Recipes.update(this._id, {'$push':
 		{
 			'preperationSteps': {
-				'stepNumber': ,
 				'stepText': newStepText
 			}
 		}
 		});
+		$('#new-prep-step-textarea').val('');
+
+		$('#new-prep-step-textarea').animate({
+			'rows': 1,
+			'width': '200px'
+		}, 'normal');
+	},
+	'focus #new-prep-step-textarea': function() {
+		$('#new-prep-step-textarea').animate({
+			'rows': 4,
+			'width': '400px'
+		}, 'easein');
 	}
 };

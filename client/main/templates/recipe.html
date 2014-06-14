@@ -1,8 +1,6 @@
 <template name="recipe">
-<div class="panel panel-primary">
-	<div class="panel-body">
-		<span><a href="{{pathFor 'editRecipe'}}">{{recipeName}}</a></span>
-		<span class="recipe-created-time-ago"><small>{{formatTimeAgo submittedOn}}</small></span>
-	</div>
+<div class="col-lg-2 text-center recipe-box">
+	<div><a href="{{pathFor 'editRecipe'}}">{{recipeName}}</a></div>
+	<div class="recipe-created-time-ago"><small>{{formatTimeAgo submittedOn}}</small></div>
 </div>
 </template>

@@ -1,11 +1,15 @@
   <template name="main">
   {{#if currentUser}}
-    <button type="button" id="add-recipe-button" class="btn btn-primary" data-toggle="modal" data-target="#add-recipe-name-modal">Add recipe</button>
-
-    <h2>Your Recipes</h2>
-    {{#each userRecipes}}
-      {{> recipe}}
-    {{/each}}
+    <h2>Your Recipes
+      <button type="button" id="add-recipe-button" class="btn btn-primary" data-toggle="modal" data-target="#add-recipe-name-modal">Add recipe</button>
+    </h2>
+    <div class="container">
+      <div class="row">
+        {{#each userRecipes}}
+          {{> recipe}}
+        {{/each}}
+      </div>
+    </div>
   {{/if}}
   {{#unless currentUser}}
     <div class="well">
@@ -13,7 +17,7 @@
     </div>
   {{/unless}}
 
-  <!-- Modal -->
+  <!-- Modal recipe name modal-dialog -->
   <div class="modal fade" id="add-recipe-name-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -22,11 +26,11 @@
           <h4 class="modal-title" id="modal-title">A new recipe!</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="recipe-name-input" class="form-control" placeholder="Recipe name..." />
+          <input type="text" id="recipe-name-input" class="form-control autofocus" placeholder="Recipe name..." />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" id="add-recipe-continue-button">Continue</button>
+          <button class="btn btn-primary" data-dismiss="modal" id="add-recipe-continue-button">Continue</button>
         </div>
       </div>
     </div>
