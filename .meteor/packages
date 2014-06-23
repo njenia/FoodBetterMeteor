@@ -9,3 +9,4 @@ accounts-ui
 accounts-google
 bower
 iron-router
+x-editable-bootstrap

@@ -2,3 +2,4 @@
 .meteor/meteorite
 client/lib
 smart.lock
+.idea/

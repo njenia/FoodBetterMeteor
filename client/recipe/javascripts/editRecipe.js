@@ -41,5 +41,13 @@ Template.editRecipe.events = {
 			'rows': 4,
 			'width': '400px'
 		}, 'easein');
-	}
+	},
+    'click #confirm-yes-button': function() {
+        Recipes.remove(this._id);
+        $('#confirm-modal')
+            .on('hidden.bs.modal', function() {
+                Router.go('/');
+            })
+            .modal('hide');
+    }
 };
