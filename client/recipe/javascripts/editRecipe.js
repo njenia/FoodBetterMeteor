@@ -51,3 +51,27 @@ Template.editRecipe.events = {
             .modal('hide');
     }
 };
+
+Template.editRecipe.rendered = function() {
+    var recipeId = this.data._id;
+
+    $('.steps-list .editable').editable({
+        success: function(response, newValue) {
+
+        },
+        mode: 'inline',
+        emptytext: 'Recipe step'
+    });
+
+    $('#recipe-name.editable').editable({
+        success: function(response, newValue) {
+            Recipes.update(recipeId, {
+                '$set': {
+                    recipeName: newValue
+                }
+            });
+        },
+        mode: 'inline',
+        emptytext: 'Recipe name'
+    });
+};

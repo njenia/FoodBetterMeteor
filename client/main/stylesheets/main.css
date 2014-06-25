@@ -17,3 +17,7 @@
 .recipe-box:hover {
 	border-color: #98FF98;
 }
+
+.editable-click {
+    border-bottom: none;
+}
