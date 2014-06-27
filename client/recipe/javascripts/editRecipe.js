@@ -3,7 +3,7 @@ Template.editRecipe.events = {
 		var newIngredientDesc = $('#new-ingredient-description').val();
 		var newIngredientQuantity = $('#new-ingredient-quantity').val();
 		var recipeId = this._id;
-		Recipes.update(recipeId, {'$push': 
+		Recipes.update(recipeId, {'$push':
 			{
 				'ingredients': {
 					'quantity': newIngredientQuantity,
@@ -20,7 +20,13 @@ Template.editRecipe.events = {
 			$('#add-ingredient-button').click();
 		}
 	},
-	'click #add-prep-step-button': function() {
+    minimizeRecipeStepTextarea: function () {
+        $('#new-prep-step-textarea').animate({
+            'rows': 1,
+            'width': '200px'
+        }, 'normal');
+    },
+    'click #add-prep-step-button': function() {
 		var newStepText = $('#new-prep-step-textarea').val();
 		Recipes.update(this._id, {'$push':
 		{
@@ -31,10 +37,7 @@ Template.editRecipe.events = {
 		});
 		$('#new-prep-step-textarea').val('');
 
-		$('#new-prep-step-textarea').animate({
-			'rows': 1,
-			'width': '200px'
-		}, 'normal');
+		this.minimizeRecipeStepTextarea();
 	},
 	'focus #new-prep-step-textarea': function() {
 		$('#new-prep-step-textarea').animate({
@@ -57,7 +60,12 @@ Template.editRecipe.rendered = function() {
 
     $('.steps-list .editable').editable({
         success: function(response, newValue) {
-
+            var index = this.dataset.pk;
+            var setCommand = {};
+            setCommand['preperationSteps.' + (index - 1) + '.stepText'] = newValue;
+            Recipes.update(recipeId, {
+                '$set': setCommand
+            });
         },
         mode: 'inline',
         emptytext: 'Recipe step'

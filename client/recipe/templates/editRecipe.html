@@ -49,7 +49,7 @@
 					{{#each indexedArray preperationSteps}}
 						<div class="row">
 							<div class="col-lg-1 preperation-step-index">{{_index}}</div>
-							<div class="col-lg-11 editable" data-type="textarea">{{stepText}}</div>
+							<div class="col-lg-11 editable" data-type="textarea" data-pk="{{_index}}">{{stepText}}</div>
 						</div>
 					{{/each}}
 				</div>
